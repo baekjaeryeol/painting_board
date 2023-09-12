@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/00663d8851.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Painting Board</title>
+</head>
+<body>
+    <div class="item">
+        <div class="color-item">
+            <input id="color" type="color" />
+
+            <!-- 드래그 후 Shift + Alt + i -->
+            <!-- data-OOO="": console.dir(event.target.dataset) => dataset에 저장됨-->
+            <div 
+                class="color-option" 
+                style="background-color: #1abc9c;" 
+                data-color="#1abc9c">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #3498db;" 
+                data-color="#3498db">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #34495e;" 
+                data-color="#34495e">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #27ae60;" 
+                data-color="#27ae60">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #8e44ad;" 
+                data-color="#8e44ad">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #f1c40f;" 
+                data-color="#f1c40f">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #e74c3c;" 
+                data-color="#e74c3c">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #95a5a6;" 
+                data-color="#95a5a6">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #d35400;" 
+                data-color="#d35400">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #bdc3c7;" 
+                data-color="#bdc3c7">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #2ecc71;" 
+                data-color="#2ecc71">
+            </div>
+            <div 
+                class="color-option" 
+                style="background-color: #e67e22;" 
+                data-color="#e67e22">
+            </div>
+        </div>
+
+        <canvas></canvas>
+        
+        <div class="item_button">
+            <input 
+            id="line-width"
+            type="range"
+            min="1" 
+            max="10"
+            step="0.1" 
+            value="5" />
+    
+            <button class="btn-hover color-9" id="mode-btn">채우기 Click !</button>
+            <button class="btn-hover color-9" id="deleteAll-btn">전부 지우기</button>
+            <button class="btn-hover color-9" id="eraser-btn">지우개</button>
+    
+            <label class="btn-hover color-9"  for="file">이미지 추가
+                <input id="file" type="file" accept="image/*" /></label>                
+            <button class="btn-hover color-9" id="save">이미지 저장</button>
+    
+            <input id="text" type="text" placeholder="입력 후 더블클릭" maxlength="20"/>
+    
+            <div class="item_font">
+                <select id="fontSize" required autocomplete="off">
+                    <option value="12" style="font-size: 12px;">12</option>
+                    <option value="14" style="font-size: 14px;">14</option>
+                    <option value="16" style="font-size: 16px;">16</option>
+                    <option value="18" style="font-size: 18px;">18</option>
+                    <option value="20" style="font-size: 20px;">20</option>
+                    <option value="22" style="font-size: 22px;">22</option>
+                    <option value="24" style="font-size: 24px;">24</option>
+                    <option value="26" style="font-size: 26px;">26</option>
+                    <option value="28" style="font-size: 28px;">28</option>
+                    <option value="30" style="font-size: 30px;">30</option>
+                    <option value="32" style="font-size: 32px;">32</option>
+                    <option value="34" style="font-size: 34px;">34</option>
+                    <option value="36" style="font-size: 36px;">36</option>
+                    <option value="38" style="font-size: 38px;">38</option>
+                    <option value="40" style="font-size: 40px;">40</option>
+                    <option value="42" style="font-size: 42px;">42</option>
+                    <option value="44" style="font-size: 44px;">44</option>
+                    <option value="46" style="font-size: 46px;">46</option>
+                    <option value="48" style="font-size: 48px;">48</option>
+                    <option value="50" style="font-size: 50px;">50</option>
+                </select>            
+
+                <select id="fontWeights">
+                    <option value="normal" style="font-weight: normal;">보통</option>
+                    <option value="bold" style="font-weight: bold;">굵게</option>
+                </select>
+            </div>
+            <select id="fontTypes" required autocomplete="off">
+                <option value="serif" style="font-family: serif;">serif</option>
+                <option value="fantasy" style="font-family: fantasy;">fantasy</option>
+                <option value="Times" style="font-family: 'Times New Roman', Times, serif;">Times</option>
+                <option value="monospace" style="font-family: 'Courier New', Courier, monospace">monospace</option>
+                <option value="Segoe UI" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Segoe UI</option>
+                <option value="Arial Narrow Bold" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Arial Narrow Bold</option>
+                <option value="Franklin Gothic" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Franklin Gothic</option>
+                <option value="Trebuchet MS" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Trebuchet MS</option>
+                <option value="Lucida Sans" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lucida Sans</option>
+                <option value="Helvetica Neue" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Helvetica Neue</option>
+            </select>    
+            
+        </div>
+    </div>
+
+    
+
+    <script src="js/선그리기.js"></script>
+    <script src="js/선굵기.js"></script>
+    <script src="js/색변경.js"></script>
+    <script src="js/모드변경.js"></script>
+    <script src="js/지우개.js"></script>
+    <script src="js/파일삽입.js"></script>
+    <script src="js/텍스트.js"></script>
+    <script src="js/이미지저장.js"></script>
+</body>
+</html>
